@@ -1,6 +1,6 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// 深色模式
+// Dark mode
 const root = document.documentElement;
 try {
   const saved = localStorage.getItem('theme');
@@ -14,9 +14,9 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
   try { localStorage.setItem('theme', next); } catch (e) {}
 });
 
-// 分类筛选
+// Category filter
 const works = document.querySelectorAll('.work');
-// 如果设置了 data-img,就用真实图片作为缩略图
+// If data-img is set, use the real image as the thumbnail
 works.forEach(w => {
   if (w.dataset.img) {
     w.querySelector('.thumb').style.backgroundImage = `url("${w.dataset.img}")`;
@@ -31,7 +31,7 @@ document.querySelectorAll('.filter').forEach(btn => {
   });
 });
 
-// 灯箱
+// Lightbox
 const lb = document.getElementById('lightbox');
 const lbImg = document.getElementById('lb-img');
 works.forEach(w => {

@@ -1,81 +1,81 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>你的名字 — 设计作品集</title>
-  <meta name="description" content="你的名字的设计作品集:品牌、界面、插画与海报设计。" />
+  <title>Your Name — Design Portfolio</title>
+  <meta name="description" content="Design portfolio of Your Name: branding, interface, illustration and poster design." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="nav">
-    <a class="logo" href="#top">你的名字</a>
+    <a class="logo" href="#top">Your Name</a>
     <nav>
-      <a href="#work">作品</a>
-      <a href="#about">关于</a>
-      <a href="#contact">联系</a>
-      <button id="theme-toggle" aria-label="切换深色模式">◐</button>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <button id="theme-toggle" aria-label="Toggle dark mode">◐</button>
     </nav>
   </header>
 
   <main id="top">
     <section class="hero">
-      <p class="eyebrow">设计师 / Designer</p>
-      <h1>用设计,让想法<br />被看见。</h1>
-      <p class="tagline">我专注于品牌视觉、界面与插画设计。把这句话改成一句介绍你风格与专长的话。</p>
-      <a class="btn primary" href="#work">浏览作品 ↓</a>
+      <p class="eyebrow">Designer</p>
+      <h1>Design that makes<br />ideas visible.</h1>
+      <p class="tagline">I focus on brand identity, interface and illustration design. Replace this line with a sentence about your style and specialty.</p>
+      <a class="btn primary" href="#work">View work ↓</a>
     </section>
 
     <section id="work">
       <div class="section-head">
-        <h2>精选作品</h2>
+        <h2>Selected Work</h2>
         <div class="filters" role="tablist">
-          <button class="filter active" data-filter="all">全部</button>
-          <button class="filter" data-filter="brand">品牌</button>
-          <button class="filter" data-filter="ui">界面</button>
-          <button class="filter" data-filter="illustration">插画</button>
-          <button class="filter" data-filter="poster">海报</button>
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="brand">Branding</button>
+          <button class="filter" data-filter="ui">Interface</button>
+          <button class="filter" data-filter="illustration">Illustration</button>
+          <button class="filter" data-filter="poster">Poster</button>
         </div>
       </div>
 
       <div class="gallery" id="gallery">
-        <!-- 把 data-img 换成你的图片路径(如 images/work1.jpg),并删掉 style 里的渐变即可 -->
-        <figure class="work tall" data-cat="brand" data-title="品牌视觉 · 项目一" data-desc="品牌识别系统:标志、配色、字体与应用延展。" data-img="">
+        <!-- Set data-img to your image path (e.g. images/work1.jpg). The gradient is only a placeholder. -->
+        <figure class="work tall" data-cat="brand" data-title="Brand Identity · Project One" data-desc="A brand identity system: logo, color palette, typography and applications." data-img="">
           <div class="thumb" style="--g: linear-gradient(135deg,#ff9a8b,#ff6a88)"></div>
-          <figcaption><strong>项目一</strong><span>品牌</span></figcaption>
+          <figcaption><strong>Project One</strong><span>Branding</span></figcaption>
         </figure>
-        <figure class="work" data-cat="ui" data-title="App 界面 · 项目二" data-desc="移动端产品界面设计,涵盖用户流程与组件系统。" data-img="">
+        <figure class="work" data-cat="ui" data-title="App Interface · Project Two" data-desc="Mobile product interface design, covering user flows and a component system." data-img="">
           <div class="thumb" style="--g: linear-gradient(135deg,#a1c4fd,#c2e9fb)"></div>
-          <figcaption><strong>项目二</strong><span>界面</span></figcaption>
+          <figcaption><strong>Project Two</strong><span>Interface</span></figcaption>
         </figure>
-        <figure class="work" data-cat="illustration" data-title="插画系列 · 项目三" data-desc="一组为杂志专栏创作的插画。" data-img="">
+        <figure class="work" data-cat="illustration" data-title="Illustration Series · Project Three" data-desc="A series of illustrations created for a magazine column." data-img="">
           <div class="thumb" style="--g: linear-gradient(135deg,#fddb92,#d1fdff)"></div>
-          <figcaption><strong>项目三</strong><span>插画</span></figcaption>
+          <figcaption><strong>Project Three</strong><span>Illustration</span></figcaption>
         </figure>
-        <figure class="work tall" data-cat="poster" data-title="展览海报 · 项目四" data-desc="艺术展主视觉与系列海报。" data-img="">
+        <figure class="work tall" data-cat="poster" data-title="Exhibition Poster · Project Four" data-desc="Key visual and poster series for an art exhibition." data-img="">
           <div class="thumb" style="--g: linear-gradient(135deg,#667eea,#764ba2)"></div>
-          <figcaption><strong>项目四</strong><span>海报</span></figcaption>
+          <figcaption><strong>Project Four</strong><span>Poster</span></figcaption>
         </figure>
-        <figure class="work" data-cat="ui" data-title="网站设计 · 项目五" data-desc="企业官网改版,含响应式设计与交互稿。" data-img="">
+        <figure class="work" data-cat="ui" data-title="Website Design · Project Five" data-desc="Corporate website redesign, including responsive layouts and interaction mockups." data-img="">
           <div class="thumb" style="--g: linear-gradient(135deg,#84fab0,#8fd3f4)"></div>
-          <figcaption><strong>项目五</strong><span>界面</span></figcaption>
+          <figcaption><strong>Project Five</strong><span>Interface</span></figcaption>
         </figure>
-        <figure class="work" data-cat="brand" data-title="包装设计 · 项目六" data-desc="食品品牌包装与视觉规范。" data-img="">
+        <figure class="work" data-cat="brand" data-title="Packaging Design · Project Six" data-desc="Food brand packaging and visual guidelines." data-img="">
           <div class="thumb" style="--g: linear-gradient(135deg,#f6d365,#fda085)"></div>
-          <figcaption><strong>项目六</strong><span>品牌</span></figcaption>
+          <figcaption><strong>Project Six</strong><span>Branding</span></figcaption>
         </figure>
       </div>
     </section>
 
     <section id="about">
-      <h2>关于我</h2>
-      <p>用两三句话介绍你的背景、设计理念和你想做的事。真实、简洁就好。</p>
-      <p class="skills"><strong>技能:</strong> Figma · Photoshop · Illustrator · Procreate · 品牌设计 · UI/UX</p>
+      <h2>About</h2>
+      <p>Write two or three sentences about your background, your design approach and what you want to work on. Keep it honest and concise.</p>
+      <p class="skills"><strong>Skills:</strong> Figma · Photoshop · Illustrator · Procreate · Branding · UI/UX</p>
     </section>
 
     <section id="contact">
-      <h2>联系我</h2>
-      <p>有项目想合作,或者只是想打个招呼?</p>
+      <h2>Contact</h2>
+      <p>Have a project in mind, or just want to say hello?</p>
       <p><a class="btn primary" href="mailto:you@example.com">you@example.com</a></p>
       <p class="social">
         <a href="https://www.behance.net/" target="_blank" rel="noopener">Behance</a> ·
@@ -85,10 +85,10 @@
     </section>
   </main>
 
-  <footer>© <span id="year"></span> 你的名字</footer>
+  <footer>© <span id="year"></span> Your Name</footer>
 
   <div class="lightbox" id="lightbox" hidden>
-    <button class="close" aria-label="关闭">×</button>
+    <button class="close" aria-label="Close">×</button>
     <div class="lb-body">
       <div class="lb-img" id="lb-img"></div>
       <h3 id="lb-title"></h3>

@@ -37,13 +37,33 @@ const lbImg = document.getElementById('lb-img');
 works.forEach(w => {
   w.addEventListener('click', () => {
     const img = w.dataset.img;
+    const video = w.dataset.video;
     const thumb = w.querySelector('.thumb');
-    lbImg.style.backgroundImage = img ? `url("${img}")` : getComputedStyle(thumb).backgroundImage;
+    lbImg.innerHTML = '';
+    lbImg.classList.toggle('is-video', Boolean(video));
+    if (video) {
+      // Video project: play it on loop inside the lightbox
+      lbImg.style.backgroundImage = 'none';
+      const v = document.createElement('video');
+      v.src = video;
+      if (img) v.poster = img;
+      v.autoplay = true;
+      v.loop = true;
+      v.muted = true;
+      v.controls = true;
+      v.playsInline = true;
+      lbImg.appendChild(v);
+    } else {
+      lbImg.style.backgroundImage = img ? `url("${img}")` : getComputedStyle(thumb).backgroundImage;
+    }
     document.getElementById('lb-title').textContent = w.dataset.title;
     document.getElementById('lb-desc').textContent = w.dataset.desc;
     lb.hidden = false;
   });
 });
-const closeLb = () => { lb.hidden = true; };
+const closeLb = () => {
+  lb.hidden = true;
+  lbImg.innerHTML = ''; // stops any playing video
+};
 lb.addEventListener('click', e => { if (e.target === lb || e.target.classList.contains('close')) closeLb(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });

@@ -1,106 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="paper">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yi Li — Design Portfolio</title>
-  <meta name="description" content="Design portfolio of Yi Li, a senior design student at SVA focused on branding, visual identity and UI design." />
+  <title>Yi Li — Designer</title>
+  <meta name="description" content="Yi Li is a senior design student at the School of Visual Arts in New York, working in branding, visual identity and UI design." />
+  <meta name="theme-color" content="#E8EAEE" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Yi Li — Designer" />
+  <meta property="og:description" content="Branding, visual identity and UI design. Selected work by Yi Li." />
+  <meta property="og:image" content="https://yili1022.github.io/images/dimyum-poster.jpg" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%232230E0'/%3E%3Cpath d='M9 8l7 9 7-9M16 17v8' fill='none' stroke='%23E8EAEE' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Schibsted+Grotesk:wght@400..900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="nav">
-    <a class="logo" href="#top">Yi Li</a>
-    <nav>
+  <a class="skip" href="#work">Skip to work</a>
+
+  <header class="top" id="top">
+    <a class="brand" href="#top">Yi Li</a>
+    <nav aria-label="Main">
       <a href="#work">Work</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <button id="theme-toggle" aria-label="Toggle dark mode">◐</button>
+      <button type="button" class="invert" id="invert" aria-pressed="false">Invert</button>
     </nav>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <p class="eyebrow">Hi, I'm Yi Li</p>
-      <h1>Design that makes<br />ideas visible.</h1>
-      <p class="tagline">I'm a designer focused on branding, visual identity and UI design. Here is a selection of my work.</p>
-      <a class="btn primary" href="#work">View work ↓</a>
+  <main>
+    <section class="hero" id="hero">
+      <h1 class="sr">Yi Li</h1>
+      <p class="intro">Senior design student at the School of Visual Arts in New York, working in branding, visual identity and UI design.</p>
+
+      <figure class="lettering">
+        <svg id="lettering" viewBox="0 0 900 400" tabindex="0" role="img"
+             aria-label="Yi Li, drawn in monoline lettering. Arrow keys change its weight and slant.">
+          <g class="guides" aria-hidden="true">
+            <line x1="0" x2="900" y1="70" y2="70" />
+            <line x1="0" x2="900" y1="190" y2="190" />
+            <line x1="0" x2="900" y1="330" y2="330" />
+            <text x="896" y="60" text-anchor="end">Cap height</text>
+            <text x="896" y="180" text-anchor="end">x-height</text>
+            <text x="896" y="320" text-anchor="end">Baseline</text>
+          </g>
+          <g id="glyphs" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="26">
+            <path class="stroke s1" pathLength="1" d="M60 70 L160 190 L260 70" />
+            <path class="stroke s2" pathLength="1" d="M160 190 V330" />
+            <path class="stroke s3" pathLength="1" d="M370 190 V330" />
+            <path class="stroke s4" pathLength="1" d="M490 70 V330 H650" />
+            <path class="stroke s5" pathLength="1" d="M760 190 V330" />
+            <path class="dot d1" data-cx="370" data-cy="115" d="M370 115 v0.01" />
+            <path class="dot d2" data-cx="760" data-cy="115" d="M760 115 v0.01" />
+          </g>
+        </svg>
+      </figure>
+
+      <div class="controls">
+        <p class="readout" aria-hidden="true">
+          <span>Weight <b id="rw">26</b></span>
+          <span>Slant <b id="rs">0°</b></span>
+        </p>
+        <button type="button" class="pill" id="term">Terminals: <span id="term-name">Round</span></button>
+        <p class="hint">Move or drag across the letters to change weight and slant.</p>
+      </div>
     </section>
 
-    <section id="work">
-      <div class="section-head">
-        <h2>Selected Work</h2>
-        <div class="filters" role="tablist">
-          <button class="filter active" data-filter="all">All</button>
-          <button class="filter" data-filter="brand">Branding</button>
-          <button class="filter" data-filter="ui">UI/UX</button>
-          <button class="filter" data-filter="packaging">Packaging</button>
-          <button class="filter" data-filter="book">Book</button>
-          <button class="filter" data-filter="poster">Poster</button>
+    <section class="work" id="work">
+      <div class="work-head">
+        <h2>Selected work</h2>
+        <div class="rail-nav">
+          <button type="button" class="pill" id="r-prev" aria-label="Previous project">Prev</button>
+          <button type="button" class="pill" id="r-next" aria-label="Next project">Next</button>
         </div>
       </div>
 
-      <div class="gallery" id="gallery">
-        <!-- Set data-img to your image path (e.g. images/anchor-gin.jpg). The gradient is only a placeholder. -->
-        <figure class="work tall" data-cat="packaging" data-title="Anchor Gin" data-desc="Packaging design, brand identity and label system. A conceptual craft gin brand inspired by the maritime history of Brooklyn's waterfront and the anchor as a symbol of stability, navigation, and identity." data-img="">
-          <div class="thumb" style="--g: linear-gradient(135deg,#a1c4fd,#c2e9fb)"></div>
-          <figcaption><strong>Anchor Gin</strong><span>Packaging</span></figcaption>
-        </figure>
-        <figure class="work" data-cat="packaging" data-title="Poland Spring" data-desc="Packaging redesign, brand identity and sustainable system. A redesign of Poland Spring as a modern, environmentally conscious water brand, using a refined, minimal packaging system." data-img="">
-          <div class="thumb" style="--g: linear-gradient(135deg,#84fab0,#8fd3f4)"></div>
-          <figcaption><strong>Poland Spring</strong><span>Packaging</span></figcaption>
-        </figure>
-        <figure class="work" data-cat="packaging" data-title="Panettone" data-desc="Packaging design, seasonal identity and structural exploration. A contemporary reinterpretation of a traditional Italian holiday dessert, presented through a refined, structured packaging system." data-img="">
-          <div class="thumb" style="--g: linear-gradient(135deg,#f6d365,#fda085)"></div>
-          <figcaption><strong>Panettone</strong><span>Packaging</span></figcaption>
-        </figure>
-        <figure class="work tall" data-cat="poster" data-title="Ten Principles of Good Design" data-desc="A typographic poster series on Dieter Rams' ten principles of good design, set entirely in Helvetica. An animated version was also produced." data-img="">
-          <div class="thumb" style="--g: linear-gradient(135deg,#ff9a8b,#ff6a88)"></div>
-          <figcaption><strong>Ten Principles of Good Design</strong><span>Poster</span></figcaption>
-        </figure>
-        <figure class="work" data-cat="brand" data-title="Dim Yum" data-desc="Brand identity and logo animation for Dim Yum: Dim Sum • Yumcha • Cocktails." data-img="images/dimyum-poster.jpg" data-video="videos/dimyum.mp4">
-          <div class="thumb" style="--g: linear-gradient(135deg,#667eea,#764ba2)"></div>
-          <figcaption><strong>Dim Yum</strong><span>Branding</span></figcaption>
-        </figure>
-        <figure class="work" data-cat="ui" data-title="UI/UX Design" data-desc="UI/UX design project. Details coming soon." data-img="">
-          <div class="thumb" style="--g: linear-gradient(135deg,#fddb92,#d1fdff)"></div>
-          <figcaption><strong>UI/UX Design</strong><span>UI/UX</span></figcaption>
-        </figure>
-        <figure class="work" data-cat="book" data-title="Book Design" data-desc="Book design project. Details coming soon." data-img="">
-          <div class="thumb" style="--g: linear-gradient(135deg,#d4fc79,#96e6a1)"></div>
-          <figcaption><strong>Book Design</strong><span>Book</span></figcaption>
-        </figure>
+      <div class="rail" id="rail" tabindex="0" role="region" aria-label="Selected work. Scroll sideways."></div>
+
+      <div class="ruler" id="ruler">
+        <div class="ticks" id="ticks"></div>
+        <div class="handle" id="handle" aria-hidden="true"></div>
+      </div>
+      <p class="ruler-now" id="ruler-now" aria-hidden="true"></p>
+    </section>
+
+    <section class="about" id="about">
+      <h2>About</h2>
+      <div class="about-body">
+        <p class="about-lead">I’m a senior design student at the School of Visual Arts (SVA) in New York, with a strong focus on branding, visual identity, and UI design. My work centers on building clear visual systems and thoughtful digital experiences. I’m deeply interested in how structure, typography, and interaction come together to shape perception and behavior.</p>
+        <p class="about-more">I’m naturally curious and constantly exploring new tools, design methods, and emerging technologies. From visual identities to interface systems, I approach every project with both analytical thinking and aesthetic sensitivity. For me, design is not just about making things look good — it’s about creating clarity, intention, and meaningful connection. I aim to grow into a multidisciplinary designer who can think strategically, design visually, and build with purpose.</p>
+        <p class="focus">Branding, visual identity, UI design, packaging, typography, interaction and creative coding.</p>
       </div>
     </section>
 
-    <section id="about">
-      <h2>About</h2>
-      <p>I’m a senior design student at the School of Visual Arts (SVA) in New York, with a strong focus on branding, visual identity, and UI design. My work centers on building clear visual systems and thoughtful digital experiences. I’m deeply interested in how structure, typography, and interaction come together to shape perception and behavior.</p>
-      <p>I’m naturally curious and constantly exploring new tools, design methods, and emerging technologies. From visual identities to interface systems, I approach every project with both analytical thinking and aesthetic sensitivity. For me, design is not just about making things look good — it’s about creating clarity, intention, and meaningful connection. I aim to grow into a multidisciplinary designer who can think strategically, design visually, and build with purpose.</p>
-      <p class="skills"><strong>Focus:</strong> Branding · Visual Identity · UI Design · Packaging · Typography · Interaction · Creative Coding</p>
-    </section>
-
-    <section id="contact">
+    <section class="contact" id="contact">
       <h2>Contact</h2>
-      <p>Have a project in mind, or just want to say hello?</p>
-      <p><a class="btn primary" href="mailto:yli183@sva.edu">yli183@sva.edu</a></p>
-      <p class="social">
-        <a href="https://www.linkedin.com/in/yi-li-33050132a" target="_blank" rel="noopener">LinkedIn</a> ·
-        <a href="https://www.instagram.com/kojikojily" target="_blank" rel="noopener">Instagram</a> ·
-        <a href="https://github.com/yili1022" target="_blank" rel="noopener">GitHub</a>
-      </p>
+      <div class="contact-body">
+        <p class="contact-lead">Have a project in mind, or just want to say hello?</p>
+        <a class="mail" href="mailto:yli183@sva.edu">yli183@sva.edu</a>
+        <p class="contact-links">
+          <button type="button" class="pill" id="copy-mail">Copy email</button>
+          <a href="https://www.linkedin.com/in/yi-li-33050132a" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/kojikojily" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://github.com/yili1022" target="_blank" rel="noopener">GitHub</a>
+        </p>
+      </div>
     </section>
   </main>
 
-  <footer>© <span id="year"></span> Yi Li</footer>
+  <footer class="foot">
+    <span>© <span id="year"></span> Yi Li</span>
+    <a href="#top">Back to top</a>
+  </footer>
 
-  <div class="lightbox" id="lightbox" hidden>
-    <button class="close" aria-label="Close">×</button>
-    <div class="lb-body">
-      <div class="lb-img" id="lb-img"></div>
-      <h3 id="lb-title"></h3>
-      <p id="lb-desc"></p>
+  <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="v-title" hidden>
+    <div class="v-bar">
+      <p class="v-title" id="v-title"></p>
+      <button type="button" class="pill" id="v-close">Close</button>
+    </div>
+    <div class="v-stage" id="v-stage"></div>
+    <div class="v-foot">
+      <p class="v-desc" id="v-desc"></p>
+      <div class="v-pager" id="v-pager" hidden>
+        <button type="button" class="pill" id="v-prev" aria-label="Previous image">Prev</button>
+        <span id="v-count"></span>
+        <button type="button" class="pill" id="v-next" aria-label="Next image">Next</button>
+      </div>
     </div>
   </div>
+
+  <p class="toast" id="toast" role="status" aria-live="polite"></p>
+
+  <noscript>
+    <p style="padding:24px">This portfolio needs JavaScript to show the work. Contact: <a href="mailto:yli183@sva.edu">yli183@sva.edu</a></p>
+  </noscript>
 
   <script src="script.js"></script>
 </body>
